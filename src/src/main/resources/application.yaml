@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: videoStorageServer
+
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+
+server:
+  port: 8080
+  servlet:
+    context-path: "/${spring.application.api-version}"
