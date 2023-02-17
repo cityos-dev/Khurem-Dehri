@@ -33,3 +33,14 @@ We understand taking a challenge is time consuming, so feel free to choose an ad
 *Note*
 
 If you add or change APIs, include its OpenAPI document. However, please note that your server may be accessed by external clients in accordance with the given OpenAPI document and automated tests will hit the endpoints as described in [api.yaml](./api.yaml), therefore any change in the base path could result in 404 or false negative.
+
+
+
+
+
+## Khurem Dehri's Self-Answer Section
+
+### Additional Features That Would Be Added Given Time
+- Integration Testing
+- Video Streaming to Reduce Download Time and Allow Immediate Streaming
+- HTML Web UI for Easier Usage
