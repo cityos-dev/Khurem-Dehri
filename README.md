@@ -1,3 +1,11 @@
+
+# Khurem Dehri's Self-Answer Section
+
+## Additional Features That Would Be Added Given Time
+- Integration Testing: The client is currently confirmed to work through QA testing and unit testing, but automated integration tests would be the next step to verifying everything works
+- Video Streaming to Reduce Download Time and Allow Immediate Streaming: the server works by uploads and downloads, but most people would probably prefer to watch a video as its ready if they're able. So the next step would be to allow content to be streamed when the file is large so people can start to watch the video immediately. This would be done probably through the sending of data when the client is connected and would need to rethink the current http setup.
+- HTML Web UI for Easier Usage: this is a developer's video storage server, there requires some knowledge of docker or building gradle/java. The next step would be to add in ease of installation and use through a web UI for people who are less tech savvy. This would require HTML work alongside some clearer and easier installation steps to avoid things like docker setup or running command line scripts.
+
 # Challenge Statement
 
 This challenge is about creating a simple video storage server with REST APIs
@@ -38,9 +46,3 @@ If you add or change APIs, include its OpenAPI document. However, please note th
 
 
 
-## Khurem Dehri's Self-Answer Section
-
-### Additional Features That Would Be Added Given Time
-- Integration Testing
-- Video Streaming to Reduce Download Time and Allow Immediate Streaming
-- HTML Web UI for Easier Usage
