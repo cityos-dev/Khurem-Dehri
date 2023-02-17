@@ -1,7 +1,5 @@
 package model
 
-import kotlinx.serialization.Serializable
-
 /**
  * 
  * @param fileid 
@@ -9,7 +7,6 @@ import kotlinx.serialization.Serializable
  * @param propertySize file size (bytes)
  * @param createdAt Time when the data was saved on the server side.
  */
-@Serializable
 data class UploadedFile(
     val fileid: String,
     val name: String,
