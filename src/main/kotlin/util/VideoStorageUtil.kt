@@ -25,7 +25,7 @@ class VideoStorageUtil : FileStorageUtil {
         }
     }
 
-    override fun upload(file: MultipartFile) {
+    override fun upload(file: MultipartFile): String {
         try {
             val destinationPath = this.ROOT_PATH.resolve(Paths.get(file.originalFilename))
                 .normalize()
@@ -36,6 +36,7 @@ class VideoStorageUtil : FileStorageUtil {
             file.inputStream.use { fileStream ->
                 Files.copy(fileStream, destinationPath, StandardCopyOption.REPLACE_EXISTING)
             }
+            return destinationPath.toString()
         } catch (e: IOException) {
             throw RuntimeException("Error with input. Exception message: ${e.message}")
         }

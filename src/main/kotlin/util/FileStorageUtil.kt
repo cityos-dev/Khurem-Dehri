@@ -7,7 +7,7 @@ interface FileStorageUtil {
 
     fun init()
 
-    fun upload(file: MultipartFile)
+    fun upload(file: MultipartFile): String
 
     fun download(filePath: String): Resource
 

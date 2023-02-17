@@ -33,7 +33,7 @@ class HealthApiController() {
         method = [RequestMethod.GET],
         value = ["/health"]
     )
-    fun healthGet(): ResponseEntity<Unit> {
-        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    fun healthGet(): ResponseEntity<String> {
+        return ResponseEntity.ok("OK")
     }
 }

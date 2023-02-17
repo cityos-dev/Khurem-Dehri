@@ -12,8 +12,7 @@ import jakarta.persistence.GenerationType
 @Table(name = "videoMetadata")
 data class DatabaseFile (
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    var fileid: Long = 0,
+    var fileid: String,
 
     @Column(name = "name", nullable = false)
     val name: String,
@@ -22,7 +21,7 @@ data class DatabaseFile (
     val propertySize: Int,
 
     @Column(name = "createdAt", nullable = false)
-    val createdAt: java.time.OffsetDateTime,
+    val createdAt: String,
 
     @Column(name = "path", nullable = false)
     val path: String
