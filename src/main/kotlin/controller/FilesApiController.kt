@@ -21,6 +21,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.util.MimeType
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.ControllerAdvice
+import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
@@ -48,6 +49,8 @@ class FilesApiController {
 
     @Autowired
     private lateinit var videoStorageUtil: VideoStorageUtil
+
+    private final val SUPPORTED_MIME_TYPES = listOf("video/mpeg", "video/mp4")
 
     @Operation(
         summary = "",
@@ -161,7 +164,7 @@ class FilesApiController {
             return ResponseEntity.badRequest().body("Bad request")
         }
 
-        if (data.contentType != "video/mp4" && data.contentType != "video/mpeg") {
+        if (!SUPPORTED_MIME_TYPES.contains(data.contentType)) {
             return ResponseEntity("Unsupported Media Type", HttpStatus.UNSUPPORTED_MEDIA_TYPE)
         }
 
