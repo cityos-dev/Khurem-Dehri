@@ -1,6 +1,9 @@
 
 # Khurem Dehri's Self-Answer Section
 
+## Additional Information on Project
+Please check out the [README_SUPPLEMENT.md](https://github.com/cityos-dev/Khurem-Dehri/blob/main/README_SUPPLEMENT.md)
+
 ## Additional Features That Would Be Added Given Time
 - Integration Testing: The client is currently confirmed to work through QA testing and unit testing, but automated integration tests would be the next step to verifying everything works
 - Video Streaming to Reduce Download Time and Allow Immediate Streaming: the server works by uploads and downloads, but most people would probably prefer to watch a video as its ready if they're able. So the next step would be to allow content to be streamed when the file is large so people can start to watch the video immediately. This would be done probably through the sending of data when the client is connected and would need to rethink the current http setup.
