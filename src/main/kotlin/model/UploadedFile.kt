@@ -1,5 +1,7 @@
 package model
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 /**
  * 
  * @param fileid 
@@ -8,10 +10,10 @@ package model
  * @param createdAt Time when the data was saved on the server side.
  */
 data class UploadedFile(
-    val fileid: String,
-    val name: String,
-    val propertySize: Int,
-    val createdAt: String
+    @JsonProperty("fileid") val fileid: String,
+    @JsonProperty("name") val name: String,
+    @JsonProperty("size") val propertySize: Int,
+    @JsonProperty("created_at") val createdAt: String
 ) {
 
 }

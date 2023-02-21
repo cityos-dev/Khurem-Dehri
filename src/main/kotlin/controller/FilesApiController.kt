@@ -133,15 +133,13 @@ class FilesApiController {
     @RequestMapping(
         method = [RequestMethod.GET], value = ["/files"], produces = ["application/json"]
     )
-    fun filesGet(): ResponseEntity<List<Map<String, String>>> {
+    fun filesGet(): ResponseEntity<List<UploadedFile>> {
 
         val responseHeader = HttpHeaders()
         responseHeader.contentType = MediaType.APPLICATION_JSON
         return ResponseEntity(
             videoMetadataRepository.findAll().map {
-                mapOf(
-                    "fileid" to it.fileid, "name" to it.name, "size" to it.propertySize.toString(), "created_at" to it.createdAt
-                )
+                    UploadedFile(it.fileid, it.name, it.propertySize, it.createdAt)
             }, responseHeader, 200
         )
     }

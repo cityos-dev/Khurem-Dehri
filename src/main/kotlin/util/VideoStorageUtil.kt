@@ -64,9 +64,9 @@ class VideoStorageUtil : FileStorageUtil {
     }
 
     override fun delete(filePath: String) {
-        val filePath = ROOT_PATH.resolve(filePath)
+        val pathToDelete = ROOT_PATH.resolve(filePath)
         try {
-            FileSystemUtils.deleteRecursively(filePath)
+            FileSystemUtils.deleteRecursively(pathToDelete)
         } catch (e: IOException) {
             throw RuntimeException("Error deleting video. Exception message: ${e.message}")
         }
