@@ -1,6 +1,9 @@
 package controller
 
 import database.VideoMetadataRepository
+import io.mockk.every
+import io.mockk.mockkStatic
+import io.mockk.unmockkAll
 import jakarta.annotation.Resource
 import model.DatabaseFile
 import model.UploadedFile
@@ -16,10 +19,13 @@ import org.springframework.http.ResponseEntity
 import org.springframework.mock.web.MockMultipartFile
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit.jupiter.SpringExtension
+import org.springframework.util.FileSystemUtils
 import util.VideoStorageUtil
 import java.io.File
 import java.io.FileInputStream
+import java.net.URI
 import java.nio.file.Files
+import java.nio.file.Path
 import java.nio.file.Paths
 import java.time.OffsetDateTime
 import java.time.ZoneOffset
@@ -37,6 +43,9 @@ class FilesApiControllerTest {
 
     @MockBean
     private lateinit var videoStorageUtil: VideoStorageUtil
+
+    @MockBean
+    private lateinit var resource: org.springframework.core.io.Resource
 
     @Resource
     private lateinit var filesApiController: FilesApiController

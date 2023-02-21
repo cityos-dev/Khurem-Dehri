@@ -1,18 +1,11 @@
 version: "3.8"
 
 services:
-  wait:
-    build:
-      context: .
-    depends_on:
-      app:
-        condition: service_healthy
-
-  app:
+  videoserver:
     image: 'woven-videoserver-plain:latest'
     build:
       context: .
-    container_name: app
+    container_name: videoserver
     depends_on:
       - db
     environment:
@@ -21,13 +14,13 @@ services:
       - SPRING_DATASOURCE_PASSWORD=compose-postgres
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
     ports:
-      - "8080:8080"
+      - '1996:1996'
     healthcheck:
-      test: ["CMD", "echo", "Done"]
-      interval: 20s
+      test: [ "CMD" ,"curl", "-f","http://localhost:1996/v1/health" ]
+      interval: 5s
+      retries: 10
+      start_period: 5s
       timeout: 10s
-      retries: 3
-
 
   db:
     image: 'postgres:15-alpine'
@@ -36,4 +29,14 @@ services:
       - POSTGRES_USER=compose-postgres
       - POSTGRES_PASSWORD=compose-postgres
     ports:
-      - 5432
+      - '5432:5432'
+
+  proxy_server:
+    image: haproxy:2.7-alpine
+    depends_on:
+      videoserver:
+        condition: service_healthy
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    ports:
+      - "8080:8080"
