@@ -7,7 +7,11 @@ import jakarta.persistence.Table
 import jakarta.persistence.Column
 import jakarta.persistence.GenerationType
 
-//keep all the values needed for uploadedfile plus path
+/*
+The data class for the file metadata database.
+Alongside the information returned when the client requests the list of videos,
+it also stores the path to be able to retrieve the video from storage.
+*/
 @Entity
 @Table(name = "videoMetadata")
 data class DatabaseFile (
