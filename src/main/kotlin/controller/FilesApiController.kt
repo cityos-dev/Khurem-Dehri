@@ -83,7 +83,6 @@ class FilesApiController {
             }
         }
 
-
         return ResponseEntity("File not found", HttpStatus.NOT_FOUND)
 
     }
@@ -160,6 +159,7 @@ class FilesApiController {
         method = [RequestMethod.POST], value = ["/files"], consumes = ["multipart/form-data"]
     )
     fun filesPost(@Parameter(description = "file detail") @Valid @RequestPart("data") data: MultipartFile?): ResponseEntity<String> {
+        
         if (data == null || data.isEmpty) {
             logger.error("Data to upload is empty.")
             return ResponseEntity.badRequest().body("Bad request")
